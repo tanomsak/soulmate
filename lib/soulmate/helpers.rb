@@ -11,7 +11,8 @@ module Soulmate
     end
 
     def normalize(str)
-      str.downcase.gsub(/[^a-z0-9 ]/i, '').strip
+      # str.downcase.gsub(/[^a-z0-9 ]/i, '').strip
+      str.downcase.strip # keep thai char      
     end
 
   end
