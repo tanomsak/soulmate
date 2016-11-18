@@ -38,7 +38,8 @@ module Soulmate
         Soulmate.redis.hset(database, item["id"], MultiJson.encode(item))
         phrase = ([item["term"]] + (item["aliases"] || [])).join(' ')
         prefixes_for_phrase(phrase).each do |p|
-          Soulmate.redis.sadd(base, p) # remember this prefix in a master set
+          Soulmate.redis.sadd(base, p) # remember this prefix in a master set          
+          # puts "#{item['id']} :  #{item['score']}"
           Soulmate.redis.zadd("#{base}:#{p}", item["score"], item["id"]) # store the id of this term in the index
         end
       end

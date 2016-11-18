@@ -8,12 +8,16 @@ require 'soulmate/base'
 require 'soulmate/matcher'
 require 'soulmate/loader'
 
+require 'iconv'
+require 'libthai'
+
 module Soulmate
 
   extend self
 
   MIN_COMPLETE = 1
-  DEFAULT_STOP_WORDS = ["vs", "at", "the"]
+  # DEFAULT_STOP_WORDS = ["vs", "at", "the"]
+  DEFAULT_STOP_WORDS = []
 
   def redis=(url)
     @redis = nil
